@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0f0f0f;
+  color: white;
+}
+
+.wrap {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  opacity: 0.7;
+  margin-bottom: 40px;
+}
+
+.card {
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #9ad;
+}
