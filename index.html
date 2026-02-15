@@ -16,9 +16,65 @@
         <p>Coming soon. In the meantime, visit it in <a href="https://www.figma.com/proto/xkNL6vdRkEDgYO5NpgKvsE/Dila-Portfolio?node-id=83-38&p=f&t=rqmC9c9I2MyvSAxB-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1</p>">FIGMA</a>
       </section>
 
-      <footer>
+<section class="card">
+  <h2>D3 test</h2>
+
+  <button id="toggleBtn">Move dots</button>
+
+  <svg id="viz" width="520" height="260" viewBox="0 0 520 260"></svg>
+</section>
+
+      
+
+           <footer>
         <a href="mailto:dila_turkmen@hotmail.com">Contact</a>
       </footer>
     </main>
   </body>
+
+  //dila
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+<script>
+  const svg = d3.select("#viz");
+
+  const stateA = [
+    { id: "a", x: 120, y: 80 },
+    { id: "b", x: 180, y: 170 },
+  ];
+
+  const stateB = [
+    { id: "a", x: 380, y: 140 },
+    { id: "b", x: 320, y: 60 },
+  ];
+
+  let showingB = false;
+
+  const dots = svg.selectAll("circle.dot")
+    .data(stateA, d => d.id)
+    .join("circle")
+    .attr("class", "dot")
+    .attr("r", 10)
+    .attr("cx", d => d.x)
+    .attr("cy", d => d.y)
+    .attr("fill", "white");
+
+  function render() {
+    const target = showingB ? stateB : stateA;
+
+    svg.selectAll("circle.dot")
+      .data(target, d => d.id)
+      .transition()
+      .duration(800)
+      .attr("cx", d => d.x)
+      .attr("cy", d => d.y);
+  }
+
+  document.getElementById("toggleBtn").addEventListener("click", () => {
+    showingB = !showingB;
+    render();
+  });
+</script>
+// dila
+  
 </html>
